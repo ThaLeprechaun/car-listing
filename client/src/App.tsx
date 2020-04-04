@@ -1,25 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
+import Filter from './Pages/Filter/Filter';
+import FirstFilter from './Pages/CarOwners/FilterList';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <Filter />
+        </Route>
+        <Route path="/1">
+          <FirstFilter />
+        </Route>
+        <Route path="/2">
+          <FirstFilter />
+        </Route>
+        <Route path="/3">
+          <FirstFilter />
+        </Route>
+        <Route path="/4">
+          <FirstFilter />
+        </Route>
+        <Route path="/5">
+          <FirstFilter />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
