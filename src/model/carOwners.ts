@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 export interface CarSchema extends mongoose.Document {
-  id: number;
+  id: number | any;
   firstName: string;
   lastName: string;
   email: string;
