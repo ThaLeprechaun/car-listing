@@ -19,7 +19,7 @@ router.post('/', async function(req, res) {
   }
 });
 
-router.get('/first-filter', async function(_req, res) {
+router.get('/1', async function(_req, res) {
   try {
     const carOwner = await firstFilter();
     return res.status(200).json({ message: 'success', carOwner });
@@ -29,7 +29,7 @@ router.get('/first-filter', async function(_req, res) {
   }
 });
 
-router.get('/second-filter', async function(_req, res) {
+router.get('/2', async function(_req, res) {
   try {
     const carOwner = await secondFilter();
     return res.status(200).json({ message: 'success', carOwner });
@@ -39,7 +39,7 @@ router.get('/second-filter', async function(_req, res) {
   }
 });
 
-router.get('/third-filter', async function(_req, res) {
+router.get('/3', async function(_req, res) {
   try {
     const carOwner = await thirdFilter();
     return res.status(200).json({ message: 'success', carOwner });
@@ -49,7 +49,7 @@ router.get('/third-filter', async function(_req, res) {
   }
 });
 
-router.get('/fourth-filter', async function(_req, res) {
+router.get('/4', async function(_req, res) {
   try {
     const carOwner = await fourthFilter();
     return res.status(200).json({ message: 'success', carOwner });
@@ -59,7 +59,7 @@ router.get('/fourth-filter', async function(_req, res) {
   }
 });
 
-router.get('/fifth-filter', async function(_req, res) {
+router.get('/5', async function(_req, res) {
   try {
     const carOwner = await fourthFilter();
     return res.status(200).json({ message: 'success', carOwner });
