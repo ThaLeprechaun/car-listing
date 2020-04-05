@@ -18,11 +18,11 @@ const carSchema = new mongoose.Schema({
   id: {
     type: Number,
   },
-  firstName: {
+  first_name: {
     type: String,
     required: true,
   },
-  lastName: {
+  last_name: {
     type: String,
     required: true,
   },
