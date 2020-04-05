@@ -1,8 +1,9 @@
-import CarOwners from '../model/carOwners';
+import CarOwners, { CarSchema } from '../model/carOwners';
 
 export interface CarOwnerDetails {
-  firstName: string;
-  lastName: string;
+  id: number;
+  first_name: string;
+  last_name: string;
   email: string;
   country: string;
   car_model: string;
@@ -44,10 +45,51 @@ export async function createOwner(obj: CarOwnerDetails) {
   }
 }
 
-export async function firstFilter() {
+export async function retrieveData() {
   try {
     const owner = await CarOwners.find();
 
+    if (!owner) {
+      throw Error('Unable to retrieve car details');
+    }
+    return owner;
+  } catch (error) {
+    throw Error(error.message);
+  }
+}
+
+export const retrievedData = retrieveData();
+
+function filterCarCountry(_currentValue: any, index: number, arr: CarSchema[]) {
+  return (
+    arr[index].country === countryCheck[0] ||
+    arr[index].country === countryCheck[1] ||
+    arr[index].country === countryCheck[2] ||
+    arr[index].country === countryCheck[3] ||
+    arr[index].country === countryCheck[4] ||
+    arr[index].country === countryCheck[5] ||
+    arr[index].country === countryCheck[6]
+  );
+}
+
+function filterCarColor(_currentValue: any, index: number, arr: CarSchema[]) {
+  return (
+    arr[index].car_color === colorCheck[0] ||
+    arr[index].car_color === colorCheck[1] ||
+    arr[index].car_color === colorCheck[2] ||
+    arr[index].car_color === colorCheck[3] ||
+    arr[index].car_color === colorCheck[4] ||
+    arr[index].car_color === colorCheck[5] ||
+    arr[index].car_color === colorCheck[6] ||
+    arr[index].car_color === colorCheck[7] ||
+    arr[index].car_color === colorCheck[8] ||
+    arr[index].car_color === colorCheck[9]
+  );
+}
+
+export async function firstFilter() {
+  try {
+    const owner = await retrievedData;
     const carModelYear = owner.filter(
       year =>
         year.car_model_year >= 1990 &&
@@ -55,32 +97,9 @@ export async function firstFilter() {
         year.gender === 'Male',
     );
 
-    const carCountry = carModelYear.filter(
-      country =>
-        country.country === countryCheck[0] ||
-        country.country === countryCheck[1] ||
-        country.country === countryCheck[2] ||
-        country.country === countryCheck[3] ||
-        country.country === countryCheck[4] ||
-        country.country === countryCheck[5] ||
-        country.country === countryCheck[6] ||
-        country.country === countryCheck[7] ||
-        country.country === countryCheck[8],
-    );
+    const carCountry = carModelYear.filter(filterCarCountry);
+    const carColor = carCountry.filter(filterCarColor);
 
-    const carColor = carCountry.filter(
-      color =>
-        color.car_color === colorCheck[0] ||
-        color.car_color === colorCheck[1] ||
-        color.car_color === colorCheck[2] ||
-        color.car_color === colorCheck[3] ||
-        color.car_color === colorCheck[4] ||
-        color.car_color === colorCheck[5] ||
-        color.car_color === colorCheck[6] ||
-        color.car_color === colorCheck[7] ||
-        color.car_color === colorCheck[8] ||
-        color.car_color === colorCheck[9],
-    );
     return carColor;
   } catch (error) {
     throw Error(error.message);
@@ -89,8 +108,7 @@ export async function firstFilter() {
 
 export async function secondFilter() {
   try {
-    const owner = await CarOwners.find();
-
+    const owner = await retrieveData();
     const carModelYear = owner.filter(
       year =>
         year.car_model_year >= 1990 &&
@@ -98,32 +116,9 @@ export async function secondFilter() {
         year.gender === '',
     );
 
-    const carCountry = carModelYear.filter(
-      country =>
-        country.country === countryCheck[0] ||
-        country.country === countryCheck[1] ||
-        country.country === countryCheck[2] ||
-        country.country === countryCheck[3] ||
-        country.country === countryCheck[4] ||
-        country.country === countryCheck[5] ||
-        country.country === countryCheck[6] ||
-        country.country === countryCheck[7] ||
-        country.country === countryCheck[8],
-    );
+    const carCountry = carModelYear.filter(filterCarCountry);
 
-    const carColor = carCountry.filter(
-      color =>
-        color.car_color === colorCheck[0] ||
-        color.car_color === colorCheck[1] ||
-        color.car_color === colorCheck[2] ||
-        color.car_color === colorCheck[3] ||
-        color.car_color === colorCheck[4] ||
-        color.car_color === colorCheck[5] ||
-        color.car_color === colorCheck[6] ||
-        color.car_color === colorCheck[7] ||
-        color.car_color === colorCheck[8] ||
-        color.car_color === colorCheck[9],
-    );
+    const carColor = carCountry.filter(filterCarColor);
     return carColor;
   } catch (error) {
     throw Error(error.message);
@@ -132,8 +127,7 @@ export async function secondFilter() {
 
 export async function thirdFilter() {
   try {
-    const owner = await CarOwners.find();
-
+    const owner = await retrieveData();
     const carModelYear = owner.filter(
       year =>
         year.car_model_year >= 1980 &&
@@ -154,19 +148,7 @@ export async function thirdFilter() {
         country.country !== countryCheck[8],
     );
 
-    const carColor = carCountry.filter(
-      color =>
-        color.car_color === colorCheck[0] ||
-        color.car_color === colorCheck[1] ||
-        color.car_color === colorCheck[2] ||
-        color.car_color === colorCheck[3] ||
-        color.car_color === colorCheck[4] ||
-        color.car_color === colorCheck[5] ||
-        color.car_color === colorCheck[6] ||
-        color.car_color === colorCheck[7] ||
-        color.car_color === colorCheck[8] ||
-        color.car_color === colorCheck[9],
-    );
+    const carColor = carCountry.filter(filterCarColor);
     return carColor;
   } catch (error) {
     throw Error(error.message);
@@ -175,8 +157,7 @@ export async function thirdFilter() {
 
 export async function fourthFilter() {
   try {
-    const owner = await CarOwners.find();
-
+    const owner = await retrieveData();
     const carModelYear = owner.filter(
       year =>
         year.car_model_year >= 1990 &&
@@ -218,8 +199,7 @@ export async function fourthFilter() {
 
 export async function fifthFilter() {
   try {
-    const owner = await CarOwners.find();
-
+    const owner = await retrieveData();
     const carModelYear = owner.filter(
       year =>
         year.car_model_year >= 1990 &&
@@ -227,18 +207,7 @@ export async function fifthFilter() {
         year.gender === '',
     );
 
-    const carCountry = carModelYear.filter(
-      country =>
-        country.country === countryCheck[0] ||
-        country.country === countryCheck[1] ||
-        country.country === countryCheck[2] ||
-        country.country === countryCheck[3] ||
-        country.country === countryCheck[4] ||
-        country.country === countryCheck[5] ||
-        country.country === countryCheck[6] ||
-        country.country === countryCheck[7] ||
-        country.country === countryCheck[8],
-    );
+    const carCountry = carModelYear.filter(filterCarCountry);
 
     const carColor = carCountry.filter(
       color =>
