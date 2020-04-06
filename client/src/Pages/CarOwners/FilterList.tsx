@@ -40,7 +40,7 @@ export default function FirstFilter() {
   useEffect(() => {
     (async function() {
       const res = await axios.get(
-        `http://localhost:3005/api/v1/car-owners${path}`,
+        `https://carowners.herokuapp.com/api/v1/car-owners${path}`,
       );
       setCar(res.data);
     })();
