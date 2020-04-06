@@ -7,7 +7,7 @@
   "private": true,
   "scripts": {
     "postinstall": "tsc",
-    "start": "bin/www",
+    "start": "node bin/www",
     "test": "jest",
     "test:integration": "cypress run",
     "client:start": "cd client; yarn start"
