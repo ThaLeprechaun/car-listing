@@ -108,7 +108,7 @@ export async function firstFilter() {
 
 export async function secondFilter() {
   try {
-    const owner = await retrieveData();
+    const owner = await retrievedData;
     const carModelYear = owner.filter(
       year =>
         year.car_model_year >= 1990 &&
@@ -127,7 +127,7 @@ export async function secondFilter() {
 
 export async function thirdFilter() {
   try {
-    const owner = await retrieveData();
+    const owner = await retrievedData;
     const carModelYear = owner.filter(
       year =>
         year.car_model_year >= 1980 &&
@@ -157,7 +157,7 @@ export async function thirdFilter() {
 
 export async function fourthFilter() {
   try {
-    const owner = await retrieveData();
+    const owner = await retrievedData;
     const carModelYear = owner.filter(
       year =>
         year.car_model_year >= 1990 &&
@@ -199,7 +199,7 @@ export async function fourthFilter() {
 
 export async function fifthFilter() {
   try {
-    const owner = await retrieveData();
+    const owner = await retrievedData;
     const carModelYear = owner.filter(
       year =>
         year.car_model_year >= 1990 &&
