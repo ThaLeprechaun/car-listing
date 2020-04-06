@@ -1,0 +1,151 @@
+.list-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.list-container__content {
+  margin: 14px;
+  width: 100%;
+}
+.card-list {
+  margin-left: 350px;
+  width: 50%;
+}
+.username {
+  font-size: 25px;
+}
+.category {
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-start;
+  align-items: center;
+  align-self: baseline;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.category__item {
+  border-right: 1px solid black;
+  padding-right: 20px;
+  font-size: 10px;
+  font-weight: 200;
+  color: #9b9b9b;
+}
+.category__item p {
+  font-size: 10px;
+  font-weight: 400;
+  color: black;
+}
+.description__item {
+  padding-right: 40px;
+}
+.item-brand {
+  font-size: 15px;
+  font-weight: 600;
+  color: #9b9b9b;
+}
+
+.item-year {
+  font-size: 15px;
+  font-weight: 600;
+  color: #9b9b9b;
+  margin-left: 20px;
+}
+
+.item-color {
+  font-size: 15px;
+  font-weight: 600;
+  color: #9b9b9b;
+  margin-left: 10px;
+}
+
+.list-brand-style {
+  padding-top: 5px;
+  color: black;
+  font-size: 15px;
+  font-weight: 600;
+}
+.list-year-style {
+  padding-top: 5px;
+  color: black;
+  text-align: center;
+  margin-left: 20px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.list-circle-style {
+  margin-left: 25px;
+  margin-top: 5px;
+}
+.item-brand--name {
+  font-size: 15px;
+  font-weight: 600;
+}
+.pagination__container {
+  margin: 3rem 35rem;
+}
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  padding-left: 0;
+  list-style: none;
+  border-radius: 0.25rem;
+  margin-top: 1rem;
+}
+.page-item {
+  list-style: none;
+}
+.page-item.disabled .page-link {
+  color: #6c757d;
+  pointer-events: none;
+  cursor: auto;
+  background-color: #fff;
+  border-color: #dee2e6;
+}
+.page-item:first-child .page-link {
+  margin-left: 0;
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+.page-link {
+  position: relative;
+  display: block;
+  padding: 0.5rem 0.75rem;
+  margin-left: -1px;
+  line-height: 1.25;
+  border: 1px solid #dee2e6;
+  color: #2e4fef;
+  background-color: #fff;
+  text-decoration: none;
+}
+.page-link:not(:disabled):not(.disabled) {
+  cursor: pointer;
+}
+.page-item.active .page-link {
+  z-index: 1;
+  color: #fff;
+  background-color: #2e4fef;
+  border-color: #2e4fef;
+}
+.no-data {
+  text-align: center;
+  margin-top: 5rem;
+  font-size: 20px;
+  font-weight: 600;
+}
+.back-link {
+  text-align: center;
+  margin-top: 5rem;
+  font-size: 20px;
+  font-weight: 600;
+}
+.home {
+  text-decoration: none;
+  color: #2e4fef;
+}
+.shows {
+  text-align: center;
+  margin-top: 5rem;
+  font-size: 20px;
+  font-weight: 400;
+}
