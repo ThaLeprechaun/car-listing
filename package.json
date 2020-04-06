@@ -7,7 +7,6 @@
   "private": true,
   "scripts": {
     "postinstall": "tsc",
-    "build": "scripts/build.sh",
     "start": "bin/www",
     "test": "jest",
     "test:integration": "cypress run",
