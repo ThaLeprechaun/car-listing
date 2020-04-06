@@ -46,7 +46,7 @@ export default function FirstFilter() {
     })();
   }, [history, path]);
 
-  if (car.carOwner.length === 0) {
+  if (currentData.length === 0) {
     return (
       <>
         <div className="no-data">
