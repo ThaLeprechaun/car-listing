@@ -19,6 +19,12 @@ router.post('/', async function(req, res) {
   }
 });
 
+router.get('/', function(_req, res, _next) {
+  const message = 'Hello World';
+
+  res.status(200).json({ message });
+});
+
 router.get('/1', async function(_req, res) {
   try {
     const carOwner = await firstFilter();
