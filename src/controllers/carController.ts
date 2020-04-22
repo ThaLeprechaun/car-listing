@@ -90,6 +90,9 @@ function filterCarColor(_currentValue: any, index: number, arr: CarSchema[]) {
 export async function firstFilter() {
   try {
     const owner = await retrievedData;
+    if (!owner) {
+      throw Error('Car details does not exist');
+    }
     const carModelYear = owner.filter(
       year =>
         year.car_model_year >= 1990 &&
@@ -109,6 +112,9 @@ export async function firstFilter() {
 export async function secondFilter() {
   try {
     const owner = await retrievedData;
+    if (!owner) {
+      throw Error('Car details does not exist');
+    }
     const carModelYear = owner.filter(
       year =>
         year.car_model_year >= 1990 &&
@@ -128,6 +134,9 @@ export async function secondFilter() {
 export async function thirdFilter() {
   try {
     const owner = await retrievedData;
+    if (!owner) {
+      throw Error('Car details does not exist');
+    }
     const carModelYear = owner.filter(
       year =>
         year.car_model_year >= 1980 &&
@@ -158,6 +167,9 @@ export async function thirdFilter() {
 export async function fourthFilter() {
   try {
     const owner = await retrievedData;
+    if (!owner) {
+      throw Error('Car details does not exist');
+    }
     const carModelYear = owner.filter(
       year =>
         year.car_model_year >= 1990 &&
@@ -200,6 +212,9 @@ export async function fourthFilter() {
 export async function fifthFilter() {
   try {
     const owner = await retrievedData;
+    if (!owner) {
+      throw Error('Car details does not exist');
+    }
     const carModelYear = owner.filter(
       year =>
         year.car_model_year >= 1990 &&
