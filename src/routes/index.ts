@@ -5,6 +5,7 @@ import {
   secondFilter,
   thirdFilter,
   fourthFilter,
+  fifthFilter,
 } from '../controllers/carController';
 
 const router = Router();
@@ -28,6 +29,9 @@ router.get('/', function(_req, res, _next) {
 router.get('/1', async function(_req, res) {
   try {
     const carOwner = await firstFilter();
+    if (!carOwner) {
+      return res.status(400).json({ message: 'Unable to retrieve data' });
+    }
     return res.status(200).json({ message: 'success', carOwner });
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -38,6 +42,9 @@ router.get('/1', async function(_req, res) {
 router.get('/2', async function(_req, res) {
   try {
     const carOwner = await secondFilter();
+    if (!carOwner) {
+      return res.status(400).json({ message: 'Unable to retrieve data' });
+    }
     return res.status(200).json({ message: 'success', carOwner });
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -48,6 +55,9 @@ router.get('/2', async function(_req, res) {
 router.get('/3', async function(_req, res) {
   try {
     const carOwner = await thirdFilter();
+    if (!carOwner) {
+      return res.status(400).json({ message: 'Unable to retrieve data' });
+    }
     return res.status(200).json({ message: 'success', carOwner });
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -58,6 +68,9 @@ router.get('/3', async function(_req, res) {
 router.get('/4', async function(_req, res) {
   try {
     const carOwner = await fourthFilter();
+    if (!carOwner) {
+      return res.status(400).json({ message: 'Unable to retrieve data' });
+    }
     return res.status(200).json({ message: 'success', carOwner });
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -67,7 +80,10 @@ router.get('/4', async function(_req, res) {
 
 router.get('/5', async function(_req, res) {
   try {
-    const carOwner = await fourthFilter();
+    const carOwner = await fifthFilter();
+    if (!carOwner) {
+      return res.status(400).json({ message: 'Unable to retrieve data' });
+    }
     return res.status(200).json({ message: 'success', carOwner });
   } catch (error) {
     res.status(500).json({ error: error.message });
